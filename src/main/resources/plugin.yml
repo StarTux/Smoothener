@@ -1,0 +1,8 @@
+name: Smoothener
+description: Turn blocks into their seamless version with a golden pickaxe
+author: StarTux
+version: 0.1
+main: com.winthier.smoothener.SmoothenerPlugin
+depend: []
+commands: {}
+permissions: {}
