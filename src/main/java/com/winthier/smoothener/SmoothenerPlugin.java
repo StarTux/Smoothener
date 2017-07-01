@@ -29,8 +29,7 @@ public class SmoothenerPlugin extends JavaPlugin implements Listener {
         Material.LOG, Material.LOG_2, Material.DOUBLE_STEP, Material.DOUBLE_STONE_SLAB2);
     final int LOG_SMOOTH_BITS = 12;
     final int DOUBLE_STEP_SMOOTH_BITS = 8;
-    final ItemStack smoothenerItem = new ItemStack(Material.GOLD_PICKAXE);
-    
+
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
@@ -51,8 +50,7 @@ public class SmoothenerPlugin extends JavaPlugin implements Listener {
         if (event.getHand() != EquipmentSlot.HAND) return;
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
         if (itemInHand == null) return;
-        smoothenerItem.setDurability(itemInHand.getDurability());
-        if (!smoothenerItem.isSimilar(itemInHand)) return;
+        if (itemInHand.getType() != Material.GOLD_PICKAXE) return;
         BlockState replacedState = block.getState();
         if (!smoothenBlock(block)) return;
         BlockPlaceEvent blockPlaceEvent = new BlockPlaceEvent(block, replacedState, null, itemInHand, player, true);
